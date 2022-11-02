@@ -1,5 +1,7 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
+require("dotenv").config();
+
 
 module.exports = {
   getProfile: async (req, res) => { 
@@ -15,6 +17,16 @@ module.exports = {
       console.log(err);
     }
   },
+
+  getFeed: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      res.render("feed.ejs",  { posts: posts});
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
   getPost: async (req, res) => {
     try {
       //id parameter comes from the post routes
@@ -31,6 +43,7 @@ module.exports = {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
+      console.log(result)
 
       //media is stored on cloudainary - the above request responds with url to media and the media id that you will need when deleting content 
       await Post.create({
@@ -47,6 +60,7 @@ module.exports = {
       console.log(err);
     }
   },
+
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(

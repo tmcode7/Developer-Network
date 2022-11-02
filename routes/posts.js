@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middleware/multer");
 const postsController = require("../controllers/posts");
-const { ensureAuth } = require("../middleware/auth");
+const { ensureAuth, } = require("../middleware/auth");
 
 //Post Routes
 //Since linked from server js treat each path as:
@@ -17,5 +17,7 @@ router.put("/likePost/:id", postsController.likePost);
 
 //Enables user to delete post. In controller, uses POST model to delete post from MongoDB collection
 router.delete("/deletePost/:id", postsController.deletePost);
+
+
 
 module.exports = router;
