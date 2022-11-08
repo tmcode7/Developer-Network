@@ -1,18 +1,23 @@
 <%- include('partials/header') -%>
-<div class="mt-10 flex justify-center">
-    <a class="text-center p-4 mb-1 text-3xl text-indigo-600 font-bold border border-indigo-600 rounded-full" href="/profile">/></a>
+<div class="mt-10 flex justify-center relative bg-white">
+    <a class="text-center p-4 mb-1 text-3xl text-indigo-600 font-bold border border-indigo-600 rounded-full fixed bg-white " href="/profile">/></a>
 </div>
 <div class="container">
-    <div class="row justify-content-center mt-5">
+    <div class="flex justify-center">
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
             <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
+              <img class="object-scale-down h-80 w-64" src="<%= posts[i].image%>">
             </a>
+
+            
           </li>
         <% } %>
         </ul>
+
+
+
     </div>
  
 </div>  
