@@ -9,22 +9,21 @@
               <p class="text-center"> <%= user.email %></p>
               <a href="/logout" class="text-sm text-indigo-600 italic text-center">Logout</a>
           </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+
+          <div class="mt-5 flex flex-row justify-center items-center">
+            
+            <form class="border-solid border-2 border-indigo-600 rounded-lg bg-indigo-100 w-64 p-4 text-center"action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
+                <label for="imgUpload" class="form-label text-center text-sm">Image</label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
               </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+
+              <div class="mb-3">
+                <label for="caption" class="form-label text-sm">Caption</label>
+                <textarea class="form-control border-solid border-2 border-indigo-300 rounded-lg" id="caption" name="caption"></textarea>
+              </div>
+             
+              <button type="submit" class="btn btn-primary text-center text-white border-solid border-2 border-white bg-indigo-300 rounded-lg p-4" value="Upload">Post</button>
             </form>
           </div>
       </div>
