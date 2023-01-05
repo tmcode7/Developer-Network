@@ -1,5 +1,5 @@
 <%- include('partials/header') -%>
-<div class="container">
+<div class="container relative">
   <div class="row mt-5">
       <div class="col-6">
 
@@ -10,7 +10,7 @@
               <a href="/logout" class="text-sm text-indigo-600 italic text-center">Logout</a>
           </div>
 
-          <div class="mt-5 flex flex-row justify-center items-center">
+          <div id="post-box" class="absolute inset-0 mt-5 flex flex-row justify-center items-center hidden">
             
             <form class="border-solid border-2 border-indigo-600 rounded-lg bg-indigo-100 w-64 p-4 text-center"action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
@@ -43,10 +43,12 @@
       
       <div class="mt-10 flex justify-center gap-5">
         <a class="text-center p-4 mb-1 text-3xl text-indigo-600 font-bold border border-indigo-600 rounded-full" href="/feed">/></a>
-        <a class="text-center p-4 mb-1 text-3xl text-indigo-600 font-bold border border-indigo-600 rounded-full" href="/feed">+</a>
+        <button id="add-post"class="text-center p-4 mb-1 text-3xl text-indigo-600 font-bold border border-indigo-600 rounded-full">+</button>
       </div>
 
     </div>
   </div>
 </div>
+
+<script src="script.js" type="text/javascript"></script>
 <%- include('partials/footer') -%>
